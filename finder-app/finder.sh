@@ -7,11 +7,18 @@ else
 	filesdir=$1
 	searchstr=$2
 	cd $filrsdir
-	if [ -f $filesdir/$searchstr ] 
-	then
-		echo file exists
-	else
-		echo file does not exists
-		exit 1
+	if [ -d $filesdir ]
+       	then
+		X=$(find $filesdir -type f| wc -l)
+		Y=$(grep -r  $searchstr $filesdir| wc -l) 
+				
+		echo "The number of files are $X and the number of matching lines are $Y"
+
+		exit 0
+
 	fi
+
 fi
+
+echo "specified folder does not exist"
+exit 1

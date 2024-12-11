@@ -9,3 +9,4 @@ fi
 #OverWrite content to given file
 #touch $1
 echo "$2" > $1
+exit 0
